@@ -26,7 +26,7 @@
 
 ## Abstract* 📝
 
-My proposal fixes a reproducible benchmark-cleanup defect in p5.js. During local testing, I found that `freeGeometry()` received the `myp5.model` function reference instead of the geometry instance created by `buildGeometry()`, emitting a Friendly Error System (FES) validation message while the benchmark continued. The scoped change passes the generated `shape` instance to `freeGeometry()` and is verified through the affected benchmark. This work corrects invalid cleanup usage without changing p5.js or FES behavior more broadly.
+My proposal fixes a reproducible benchmark-cleanup defect in p5.js. During local testing, I found that `freeGeometry()` received the `myp5.model` function reference instead of the geometry instance created by `buildGeometry()`, emitting a Friendly Error System (FES) validation message while the benchmark continued. The scoped change passes the generated `shape` instance to `freeGeometry()` and is verified through the affected benchmark. PR #9071 was reviewed and merged by p5.js maintainer Dave Pagurek.
 
 ---
 
@@ -38,13 +38,13 @@ In `test/bench/cpu_transforms.bench.js`, the cleanup call passed `myp5.model`—
 
 ## Proposed Solution* 💡
 
-I will submit the verified one-line correction in `test/bench/cpu_transforms.bench.js`:
+I submitted the verified one-line correction in `test/bench/cpu_transforms.bench.js`:
 
 ```js
 myp5.freeGeometry(shape);
 ```
 
-I will run the targeted CPU-transforms benchmark in its WebGL and WebGPU configurations before submitting the pull request. This narrow approach directly corrects the reported defect and follows the maintainer’s request to create Issue #9041 before opening a PR.
+I validated the change by running the targeted CPU-transforms benchmark in its WebGL and WebGPU configurations, confirming that the prior FES validation message no longer appeared. This narrow approach directly corrected the reported defect and follows the maintainer’s request to create Issue #9041 before opening a PR.
 
 ---
 
@@ -71,20 +71,21 @@ Not applicable — bug fix.
 
 ## Implementation Plan* ⏳
 
-- **Week 5 (Completed)**: Reproduce the benchmark message, identify the incorrect argument, and prepare the one-line correction.
+- **Week 5 (Completed)**: Reproduced the benchmark message, identify the incorrect argument, and prepare the one-line correction.
 - **Week 6 (Completed)**: Discuss the finding with @davepagurek and create Issue #9041 as requested.
-- **Week 7**: Create the focused pull request, run the targeted WebGL and WebGPU benchmark validation, and request review.
-- **Week 8**: Respond to review feedback and document the result in the final technical presentation.
+- **Week 7 (Completed)**: Submitted PR #9071, ran targeted WebGL/WebGPU benchmark validation, and received maintainer review.
+- **Week 8**: Document the merged result in the final technical presentation and update portfolio materials.
 
 ---
 
 ## Deliverables* 📦
 
-- A pull request correcting the cleanup call in `test/bench/cpu_transforms.bench.js`.
+- Merged PR #9071 correcting the cleanup call in `test/bench/cpu_transforms.bench.js`.
 - Targeted benchmark results for the WebGL and WebGPU configurations showing that the prior FES message no longer appears.
+- Public Issue #9041 documenting the benchmark-cleanup defect.
 
 ---
 
 ## Anything Else?
 
-I discussed the finding with @davepagurek in the p5.js Discord before opening Issue #9041. The implementation is intentionally limited to the maintainer-confirmed correction.
+I discussed the finding with @davepagurek in the p5.js Discord before opening Issue #9041. Dave confirmed that `shape` was the correct argument, reviewed PR #9071, commented “Thanks for the update, looks good!”, and merged the fix into `processing:main`.
