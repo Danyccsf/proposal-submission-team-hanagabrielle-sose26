@@ -88,4 +88,4 @@ Not applicable — bug fix.
 
 ## Anything Else?
 
-I discussed the finding with @davepagurek in the p5.js Discord before opening Issue #9041. Dave confirmed that `shape` was the correct argument, reviewed PR #9071, commented “Thanks for the update, looks good!”, and merged the fix into `processing:main`.
+I discussed the finding with @davepagurek in the p5.js Discord before opening Issue #9041. Dave Pagurek confirmed that `shape` was the correct argument, reviewed PR #9071, commented “Thanks for the update, looks good!”, and merged the fix into `processing:main`. After the merge, Dave also requested contributor credit through the all-contributors bot, and PR #9075 added @Danyccsf to the p5.js contributors list for testing.
