@@ -50,9 +50,9 @@ I validated the change by running the targeted CPU-transforms benchmark in its W
 
 ## Research on old issues and Maintainer Patterns* 🔭
 
-Issue https://github.com/processing/p5.js/issues/8953 documents ongoing work on p5.strands transformation support across graphics backends. It is relevant background for the project’s graphics direction, but this proposal does not implement its assigned transformation-matrix work.
+Issue [#8953](https://github.com/processing/p5.js/issues/8953) documents ongoing work on p5.strands transformation support across graphics backends. It is relevant background for the project’s graphics direction, but this proposal does not implement its assigned transformation-matrix work.
 
-I also reviewed https://github.com/processing/p5.js/pull/8887, which modularized the Friendly Error System. My benchmark finding shows that invalid API usage can emit an FES validation message while a benchmark still passes. I will not assume that all FES messages should globally fail benchmarks; this proposal corrects the specific misuse tracked in https://github.com/processing/p5.js/issues/9041.
+I also reviewed [#8887](https://github.com/processing/p5.js/pull/8887), which modularized the Friendly Error System. My benchmark finding shows that invalid API usage can emit an FES validation message while a benchmark still passes. I will not assume that all FES messages should globally fail benchmarks; this proposal corrects the specific misuse tracked in [#9041](https://github.com/processing/p5.js/issues/9041).
 
 ---
 
@@ -71,21 +71,21 @@ Not applicable — bug fix.
 
 ## Implementation Plan* ⏳
 
-- **Week 5 (Completed)**: Reproduced the benchmark message, identify the incorrect argument, and prepare the one-line correction.
-- **Week 6 (Completed)**: Discussed the finding with @davepagurek and create Issue #9041 as requested.
-- **Week 7 (Completed)**: Submitted PR #9071, ran targeted WebGL/WebGPU benchmark validation, and received maintainer review.
+- **Week 5 (Completed)**: Reproduced the benchmark message, identified the incorrect argument, and prepared the one-line correction.
+- **Week 6 (Completed)**: Discussed the finding with @davepagurek and created Issue [#9041](https://github.com/processing/p5.js/issues/9041) as requested.
+- **Week 7 (Completed)**: Submitted PR [#9071](https://github.com/processing/p5.js/pull/9071), ran targeted WebGL/WebGPU benchmark validation, and received maintainer review.
 - **Week 8**: Document the merged result in the final technical presentation and update portfolio materials.
 
 ---
 
 ## Deliverables* 📦
 
-- Merged PR #9071 correcting the cleanup call in `test/bench/cpu_transforms.bench.js`.
+- Merged PR [#9071](https://github.com/processing/p5.js/pull/9071) correcting the cleanup call in `test/bench/cpu_transforms.bench.js`.
 - Targeted benchmark results for the WebGL and WebGPU configurations showing that the prior FES message no longer appears.
-- Public Issue #9041 documenting the benchmark-cleanup defect.
+- Public Issue [#9041](https://github.com/processing/p5.js/issues/9041) documenting the benchmark-cleanup defect.
 
 ---
 
 ## Anything Else?
 
-I discussed the finding with @davepagurek in the p5.js Discord before opening Issue #9041. Dave Pagurek confirmed that `shape` was the correct argument, reviewed PR #9071, commented “Thanks for the update, looks good!”, and merged the fix into `processing:main`. After the merge, Dave also requested contributor credit through the all-contributors bot, and PR #9075 added @Danyccsf to the p5.js contributors list for testing.
+I discussed the finding with @davepagurek in the p5.js Discord before opening Issue [#9041](https://github.com/processing/p5.js/issues/9041). Dave Pagurek confirmed that `shape` was the correct argument, reviewed PR [#9071](https://github.com/processing/p5.js/pull/9071), commented “Thanks for the update, looks good!”, and merged the fix into `processing:main`. After the merge, Dave also requested contributor credit through the all-contributors bot, and PR [#9075](https://github.com/processing/p5.js/pull/9075) added @Danyccsf to the p5.js contributors list for testing.
