@@ -44,7 +44,7 @@ I submitted the verified one-line correction in `test/bench/cpu_transforms.bench
 myp5.freeGeometry(shape);
 ```
 
-I validated the change by running the targeted CPU-transforms benchmark in its WebGL and WebGPU configurations, confirming that the prior FES validation message no longer appeared. This narrow approach directly corrected the reported defect and follows the maintainer’s request to create Issue #9041 before opening a PR.
+I validated the change by running the targeted CPU-transforms benchmark in its WebGL and WebGPU configurations, confirming that the prior FES validation message no longer appeared. This narrow approach directly corrected the reported defect and followed the maintainer’s request to create Issue #9041 before opening a PR.
 
 ---
 
@@ -72,7 +72,7 @@ Not applicable — bug fix.
 ## Implementation Plan* ⏳
 
 - **Week 5 (Completed)**: Reproduced the benchmark message, identify the incorrect argument, and prepare the one-line correction.
-- **Week 6 (Completed)**: Discuss the finding with @davepagurek and create Issue #9041 as requested.
+- **Week 6 (Completed)**: Discussed the finding with @davepagurek and create Issue #9041 as requested.
 - **Week 7 (Completed)**: Submitted PR #9071, ran targeted WebGL/WebGPU benchmark validation, and received maintainer review.
 - **Week 8**: Document the merged result in the final technical presentation and update portfolio materials.
 
