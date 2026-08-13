@@ -16,7 +16,7 @@
 
 ## p5.js Issue* 📋
 
-- **Link to the issue:** https://github.com/processing/p5.js/issues/9041
+- **Link to the issue:** [#9041](https://github.com/processing/p5.js/issues/9041)
 
 - Issue Title: Benchmark cleanup passes `p5.model` to `freeGeometry`
 
@@ -26,7 +26,7 @@
 
 ## Abstract* 📝
 
-My proposal fixes a reproducible benchmark-cleanup defect in p5.js. During local testing, I found that `freeGeometry()` received the `myp5.model` function reference instead of the geometry instance created by `buildGeometry()`, emitting a Friendly Error System (FES) validation message while the benchmark continued. The scoped change passes the generated `shape` instance to `freeGeometry()` and is verified through the affected benchmark. PR #9071 was reviewed and merged by p5.js maintainer Dave Pagurek.
+My proposal fixes a reproducible benchmark-cleanup defect in p5.js. During local testing, I found that `freeGeometry()` received the `myp5.model` function reference instead of the geometry instance created by `buildGeometry()`, emitting a Friendly Error System (FES) validation message while the benchmark continued. The scoped change passes the generated `shape` instance to `freeGeometry()` and is verified through the affected benchmark. PR [#9071](https://github.com/processing/p5.js/pull/9071) was reviewed and merged by p5.js maintainer Dave Pagurek.
 
 ---
 
